@@ -1,0 +1,195 @@
+/* 🌐 Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 20px;
+}
+
+/* 📋 Board Container */
+.board {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+.board-icon{
+  margin-left: 12px;
+}
+
+/* 🧠 Board Header */
+.board-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.board-header h1 {
+  margin: 0;
+}
+
+.edit-board-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 📌 Task List */
+.task-list {
+  margin-bottom: 20px;
+}
+
+/* 🧱 Base Task Card */
+.task-card {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  color: black;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.task-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 🎨 Status-Based Backgrounds */
+.task-card.in-progress {
+  background: #f4d461;
+  /* color: #b8860b; */
+}
+
+.task-card.completed {
+  background: #dfffd6;
+  /* color: #228b22; */
+}
+
+.task-card.wont-do {
+  background: #ffe4ec;
+  /* color: #c71585; */
+}
+
+.task-card.todo {
+  background: #f5f5f5;
+  color: #555;
+}
+
+.task-card.add-task-card {
+  background: #f0dfcb;
+  width: 100%;
+}
+
+/* 🖼️ Left Icon Container */
+.task-icon-bg {
+  background: #fff;
+  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.task-icon {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  font-size: 24px;
+}
+
+/* 📝 Task Name */
+.task-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: inherit;
+  flex: 1;
+}
+
+.add-new-task{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: inherit;
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+/* ✅ Right Icon Container */
+.task-status-svg {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-status-icon{
+  border-radius: 10px;
+}
+
+/* 🎨 Status-Based Icon Backgrounds */
+.task-status-icon.in-progress {
+  background:#f8b602;
+}
+
+.task-status-icon.completed {
+  background: #2ecc71;
+}
+
+.task-status-icon.wont-do {
+  background: #e74c3c;
+}
+
+.task-status-svg.todo {
+  background: #bdc3c7;
+}
+
+.add-icon-container{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8b602;
+
+}
+
+/* 🛠️ Buttons */
+/* .task button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+} */
+
+
+
+/* .add-task-btn {
+  width: 100%;
+  padding: 10px;
+  background: #f39c12;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+} */
