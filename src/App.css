@@ -61,6 +61,12 @@ body {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.task-link {
+  text-decoration: none;  /* removes underline */
+  color: inherit;         /* makes it take the parent color */
+  font-weight: 600;       /* keep bold look if you want */
+}
+
 .task-card:hover {
   transform: scale(1.01);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -83,8 +89,7 @@ body {
 }
 
 .task-card.todo {
-  background: #f5f5f5;
-  color: #555;
+  background: #d6ecf5;
 }
 
 .task-card.add-task-card {
@@ -119,6 +124,20 @@ body {
   flex: 1;
 }
 
+.task-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.task-desc {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+
+
 .add-new-task{
   font-size: 1.2rem;
   font-weight: 600;
@@ -132,7 +151,6 @@ body {
 .task-status-svg {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
   padding: 6px;
   display: flex;
   align-items: center;
@@ -156,9 +174,10 @@ body {
   background: #e74c3c;
 }
 
-.task-status-svg.todo {
-  background: #bdc3c7;
+.task-status-icon.todo {
+  background: #8c8d8e;
 }
+
 
 .add-icon-container{
   width: 40px;
@@ -172,24 +191,174 @@ body {
 
 }
 
-/* 🛠️ Buttons */
-/* .task button {
-  margin-left: 5px;
-  padding: 4px 8px;
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.task-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.close-icon { 
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  transform: scale(1.1);
+}
+
+.task-detail-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background: #fff;
+  padding: 2rem;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+
+.icon-row button {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  margin-right: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-row button.selected {
+  background: #f6ca06;
+  border-color: #c19e03;
+  /* box-shadow: 0 0 0 2px rgba(247, 182, 6, 0.3); */
+}
+
+.status-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  gap: 12px;
+}
+
+.status-row button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 2px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 220px;
+}
+
+.status-row button img.task-status-svg {
+  width: 28px;
+  height: 28px;
+}
+
+
+.status-row .active {
+  border: 2px solid #007bff;
+}
+
+.status-icon {
+  margin-right: 0.5rem;
+}
+
+
+
+.form-group.full-width input,
+.form-group.full-width textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 6px; 
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group.full-width input:focus,
+.form-group.full-width textarea:focus {        
+  outline: none;  
+  border: 2px solid #007bff;
+}
+.form-group.full-width textarea {
+  height: 220px; /* or any value you prefer */
+}
+
+/* .actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+} */
+
+
+.actions.bottom-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.save-btn {
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  border: None;
+  width: 85px;
+}
+
+.delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;                  /* space between text and icon */
+  padding: 6px 12px;
+  background-color: #e74c3c; /* red background */
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-} */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
 
+.delete-btn:hover:not(:disabled) {
+  background-color: #c0392b; /* darker red on hover */
+  transform: scale(1.05);    /* subtle hover scale */
+}
 
+.delete-btn:disabled {
+  background-color: #ccc;    /* gray out when disabled */
+  cursor: not-allowed;
+}
 
-/* .add-task-btn {
-  width: 100%;
-  padding: 10px;
-  background: #f39c12;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-} */
+.delete-icon {
+  width: 20px;
+  height: 20px;
+}

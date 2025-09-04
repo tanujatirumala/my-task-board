@@ -1,8 +1,9 @@
 import React from "react";
 import { useTaskStore } from "../state/store";
+import { Link } from "react-router-dom";
 
 const Task = ({ task }) => {
-  const { deleteTask, updateTask } = useTaskStore();
+  // const { deleteTask, updateTask } = useTaskStore();
 
   const handleEdit = () => {
     const newName = prompt("Edit task name:", task.name);
@@ -12,7 +13,8 @@ const Task = ({ task }) => {
   };
 
   return (
-    <div className={`task-card ${task.status}`}>
+    <Link to={`/task/${task.id}`} className="task-link">
+      <div className={`task-card ${task.status}`}>
       {/*  Left icon */}
       <div className="task-icon-bg">
         {typeof task.leftIcon === "string" &&
@@ -24,7 +26,13 @@ const Task = ({ task }) => {
       </div>
 
       {/* Task name */}
-      <span className="task-name">{task.name}</span>
+      <div className="task-content">
+        <span className="task-name">{task.name}</span>
+        {task.description && (
+          <span className="task-desc">{task.description}</span>
+        )}
+      </div>
+
 
       {/* Right icon */}
       <div className={`task-status-icon ${task.status}`}>
@@ -36,7 +44,8 @@ const Task = ({ task }) => {
           <span className="task-status-svg">{task.rightIcon}</span>
         )}
       </div>
-    </div>
+      </div>
+    </Link>
   );
 };
 
