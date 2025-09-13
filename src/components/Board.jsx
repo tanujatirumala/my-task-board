@@ -6,8 +6,8 @@ import addIcon from "../assets/Add_round_duotone.svg";
 import { Link } from "react-router-dom";
 
 const Board = () => {
-  const { tasks, addTask } = useTaskStore();
-
+  const tasks = useTaskStore((state) => state.tasks);
+  if (!tasks || tasks.length === 0) return <div>Loading tasks...</div>;
   return (
     <div className="board">
       <BoardHeader />

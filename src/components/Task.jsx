@@ -1,6 +1,7 @@
 import React from "react";
 import { useTaskStore } from "../state/store";
 import { Link } from "react-router-dom";
+import { getRightIcon } from "../state/store"; // if exported
 
 const Task = ({ task }) => {
   // const { deleteTask, updateTask } = useTaskStore();
@@ -38,10 +39,10 @@ const Task = ({ task }) => {
       <div className={`task-status-icon ${task.status}`}>
         {task.rightIcon &&
         typeof task.rightIcon === "string" &&
-        (task.rightIcon.startsWith("data:image") || task.rightIcon.endsWith(".svg")) ? (
-          <img src={task.rightIcon} alt="" className="task-status-svg" />
+        (getRightIcon(task.rightIcon).startsWith("data:image") || getRightIcon(task.rightIcon).endsWith(".svg")) ? (
+          <img src={getRightIcon(task.rightIcon)} alt="" className="task-status-svg" />
         ) : (
-          <span className="task-status-svg">{task.rightIcon}</span>
+          <span className="task-status-svg">{getRightIcon(task.rightIcon)}</span>
         )}
       </div>
       </div>

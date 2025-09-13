@@ -127,7 +127,7 @@ const TaskDetailPage = ({ isNew }) => {
     <div className="form-group">
       <label>Icon</label>
       <div className="icon-row">
-        {["📋", "🏆", "🔧", "✅", "🐞", "🗡", "⚙", "🛒"].map((icon) => (
+        {["📋", "🏆", "🔧", "✅", "🐞", "⏳", "🚀", "🛒", "🔄", "🎯", "⚡", "⬆️","⬇️","🔒","🎉","🧭","📢", "💬","🤝"].map((icon) => (
           <button
             key={icon}
             className={formData.leftIcon === icon ? "selected" : ""}
